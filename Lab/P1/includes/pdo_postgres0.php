@@ -1,10 +1,10 @@
 <?php
 
 /** The name of the database  */
-define('DB_NAME', '***');
+define('DB_NAME', 'al375903_EI1036_42');
 
 /** Fatabase username */
-define('DB_USER', '***');
+define('DB_USER', 'al375903');
 
 /** Database password */
 define('DB_PASSWORD', '***');
