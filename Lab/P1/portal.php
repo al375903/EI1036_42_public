@@ -30,6 +30,9 @@ switch ($action) {
     case "registro":
          $central = "/partials/registerForm.php";
         break;
+    case "registrar":
+        $central = "/includes/registrar.php";
+        break;
     case "listar":
         $query = "SELECT     * FROM       $table ";
         $rows=ejecutarSQL($query,NULL);
