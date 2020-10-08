@@ -38,7 +38,7 @@ switch ($action) {
         $rows=ejecutarSQL($query,NULL);
         if (is_array($rows)) {/* Creamos un listado como una tabla HTML*/
             print '<table><thead>';
-            foreach ( array_keys($rows[0])as $key) {
+            foreach ( array_keys($rows[0]) as $key) {
                 echo "<th>", $key,"</th>";
             }
             print "</thead>";

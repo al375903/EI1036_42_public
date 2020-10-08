@@ -4,7 +4,7 @@ include("./gestionBD.php");
 function handler($pdo,$table)
 {
     $datos = $_REQUEST;
-    if (count($_REQUEST) < 2) {
+    if (count($_REQUEST) < 6) {
         $data["error"] = "No has rellenado el formulario correctamente";
         return;
     }
