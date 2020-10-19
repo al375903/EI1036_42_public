@@ -21,9 +21,6 @@
 		<li>
 			<a href="./holaMundo.php">HolaMundo</a>
 		</li>
-
-		<li>
-			<a href="?action=registrar">Registrar</a>
-		</li>
+		
 	</ul>
 </nav>
