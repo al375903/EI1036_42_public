@@ -7,6 +7,7 @@ $t_producto = 'productos';
 $t_compra   = 'compras';
 
 // REINICIAR TABLAS
+
 $query = "DROP TABLE $t_compra";
 $pdo -> exec($query);
 $query = "DROP TABLE $t_cliente";
@@ -28,7 +29,7 @@ $query = "CREATE TABLE  IF NOT EXISTS $t_cliente (
 
 $pdo -> exec($query);
 
-$query = "INSERT INTO $t_cliente (name, surname, role) VALUES (?, ?, 'admin');";
+$query = "INSERT INTO $t_cliente (name, surname, role, passwd) VALUES (?, ?, 'admin', '1234');";
 
 $a = ejecutarSQL($query, ["Jefe", "Supremo"]);
 
@@ -48,7 +49,6 @@ ejecutarSQL($query, ["Dokkan", 12.5]);
 ejecutarSQL($query, ["Tenkaichi 3", 10.0]);
 ejecutarSQL($query, ["Fighters", 7.5]);
 ejecutarSQL($query, ["Legends", 9.6]);
-/**/
 
 $query = "CREATE TABLE IF NOT EXISTS $t_compras (item_id SERIAL PRIMARY KEY, 
                                     client_id INTEGER NOT NULL,

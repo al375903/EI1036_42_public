@@ -1,10 +1,10 @@
 <?php
 
-function table2html($table)
+function tabla_usuarios()
 {
     global $pdo;
 
-    $query = "SELECT * FROM  $table;";
+    $query = "SELECT * FROM  clientes;";
     
     $rows = $pdo->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
@@ -13,15 +13,12 @@ function table2html($table)
         foreach($rows[0] as $key => $value) {
             echo "<th>", $key,"</th>";
         }
-        echo "<th> Añadir a la Cesta </th>";
         print "</thead>";
         foreach ($rows as $row) {
             print "<tr>";
-            $link = '?action=add&client_id=' .$_SESSION["usuario_id"] .'&product=' .array_values($row)[0];
             foreach ($row as $key => $val) {
                 echo "<td>", $val, "</td>";
             }
-            echo "<td><input type='button' name=$link value='Encestar'></input></td>";
             print "</tr>";
         }
         print "</table>";
