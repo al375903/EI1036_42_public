@@ -8,9 +8,9 @@
  * Template Version: 1.0.0
  * GitHub Theme URI: https://github.com/dllido/EI1036_42_public/tree/master/P1
  */
- body {
+body {
     font-family: arial;
-    /*background-image: url('../img/fondo.png');*/
+    background-image: url('../img/fondo.png');
     max-width: 1000px;
     margin: 0 auto;
     /* Centrado */
