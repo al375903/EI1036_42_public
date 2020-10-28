@@ -21,7 +21,7 @@ function table2html($table)
             foreach ($row as $key => $val) {
                 echo "<td>", $val, "</td>";
             }
-            echo "<td><input type='button' name=$link value='Encestar'></input></td>";
+            echo "<td><a href=$link> Encestar </a></td>";
             print "</tr>";
         }
         print "</table>";

@@ -7,14 +7,14 @@ $t_producto = 'productos';
 $t_compra   = 'compras';
 
 // REINICIAR TABLAS
-
+/*
 $query = "DROP TABLE $t_compra";
 $pdo -> exec($query);
 $query = "DROP TABLE $t_cliente";
 $pdo -> exec($query);
 $query = "DROP TABLE $t_producto";
 $pdo -> exec($query);
-/**/
+*/
 
 $query = "CREATE TABLE  IF NOT EXISTS $t_cliente (
                                     client_id SERIAL PRIMARY KEY, 

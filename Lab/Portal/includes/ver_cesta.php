@@ -1,6 +1,6 @@
 <?php
 
-function cesta()
+function ver_cesta()
 {
     if(0 >= count($_SESSION["cesta"])){
         echo "Cesta Vacía";
@@ -8,8 +8,8 @@ function cesta()
         echo "<ul>";
             foreach($_SESSION["cesta"] as $k => $v)
                 if(0 < strlen($v)){
-                    $link = '?action=delete&item_id=' .$k;
-                    echo "<li> $v <button href = $link class='boton'>Eliminar</button> </li>";
+                    $link = '?action=delete&item_id=' .$v;
+                    echo "<li> $v <a href = $link>Eliminar</a> </li>";
                 } else {
                     echo "Cesta vacía.";
                 } 

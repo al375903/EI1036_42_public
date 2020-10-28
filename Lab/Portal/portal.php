@@ -35,7 +35,6 @@ include(dirname(__FILE__)."/includes/registrar_producto.php");
 
 if (isset($_REQUEST['action'])) $action = $_REQUEST["action"];
 else $action = "home";
-$_SESSION["cesta"] = array();
 $central = "Partials/centro.php";
 
 switch ($action) {
@@ -50,6 +49,7 @@ switch ($action) {
         break;
     case "do_login":
         $central = autentificar_usuario(); //fijar $_SESSION["usuario"]
+        $_SESSION["cesta"] = array();
         break;
     case "registrar_usuario":
         $central = "/partials/registro_usuario.php"; //formulario usuarios
@@ -67,10 +67,20 @@ switch ($action) {
         $central = registrar_producto("productos"); //tabla productos
         break;
     case "ver_cesta": //falta delete y parece funcionar
-        $central = cesta(); //cesta en $_SESSION["cesta"]
+        $central = ver_cesta(); //cesta en $_SESSION["cesta"]
         break;
-    case "encestar": //falta
-        //$central = array_push($_SESSION["cesta"], client_id => product); //tabla compras
+    case "add":
+        array_push($_SESSION["cesta"], $_GET["product"]);
+        $central = ver_cesta();
+        break;
+    case "delete":
+        if (($key = array_search($_GET["item_id"], $_SESSION["cesta"])) !== false) {
+            unset($_SESSION["cesta"][$key]);
+        }
+        $central = ver_cesta();
+        break;
+    case "encestar":
+        $central = "<p>Todavía no puedo encestar</p>"; //tabla compras
         break;
     case "realizar_compra": //falta
         $central = "<p>Todavía no puedo añadir a la cesta</p>"; //cesta en $_SESSION["cesta"]

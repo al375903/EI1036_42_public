@@ -14,7 +14,7 @@
 			// Trampita
 			echo '<li><a href="?action=registrar_producto">Registrar Producto</a></li>';
 			echo '<li><a href="?action=ver_cesta">Cesta de Compra</a></li>';
-			echo '<li><a href="?action=ver_usuarios">Usuarios</a></li>';
+			//echo '<li><a href="?action=ver_usuarios">Usuarios</a></li>';
 		 }
 		elseif (isset($_SESSION['usuario']) and $_SESSION['usuario'] == 'admin')
 			echo '<li><a href="?action=registrar_producto">Registrar Producto</a></li>';

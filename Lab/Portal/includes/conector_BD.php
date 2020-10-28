@@ -7,7 +7,7 @@ define('DB_NAME', 'al375903_ei1036_42');
 define('DB_USER', 'al375903');
 
 /** Database password */
-define('DB_PASSWORD',                                                                                                                                                                         '***');// No me fio
+define('DB_PASSWORD',                                                                                                                                                                         'Edie161299');// No me fio
 
 /** Database hostname */
 define('DB_HOST', "db-aules.uji.es");
