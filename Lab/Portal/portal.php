@@ -2,11 +2,11 @@
     //view_form.php
 
 /**
- * * Descripción: Ejemplo de proyecto
+ * * Descripción: Proyecto portal web
  * *
  * * 
  * *
- * * @author  Rafael Berlanga
+ * * @author  Enrique Gimeno & Edgar Heredia
  * * @copyright 2020 Rafa B.
  * * @license http://www.fsf.org/licensing/licenses/gpl.txt GPL 2 or later
  * * @version 1
@@ -15,23 +15,27 @@
 
 session_start();
 
+// Descomentar para reiniciar
+//include(dirname(__FILE__)."/includes/sqlite_test.php");
+
 include(dirname(__FILE__)."/includes/ejecutarSQL.php");
 include(dirname(__FILE__)."/partials/header.php");
 include(dirname(__FILE__)."/partials/menu.php");
 
 include(dirname(__FILE__)."/includes/conector_BD.php");
 include(dirname(__FILE__)."/includes/table2html.php");
+include(dirname(__FILE__)."/includes/tabla_productos.php");
 
 include(dirname(__FILE__)."/includes/registrar_usuario.php");
 include(dirname(__FILE__)."/includes/autentificar_usuario.php");
 include(dirname(__FILE__)."/includes/tabla_usuarios.php");
 
 include(dirname(__FILE__)."/includes/ver_cesta.php");
+include(dirname(__FILE__)."/includes/ver_compras.php");
 
 include(dirname(__FILE__)."/includes/registrar_producto.php");
+include(dirname(__FILE__)."/includes/registrar_compra.php");
 
-// Descomentar para reiniciar
-//include(dirname(__FILE__)."/includes/sqlite_test.php");
 
 if (isset($_REQUEST['action'])) $action = $_REQUEST["action"];
 else $action = "home";
@@ -57,6 +61,9 @@ switch ($action) {
     case "insertar_usuario":
         $central = registrar_usuario("usuarios"); //tabla usuarios
         break;
+    case "ver_productos":
+        $central = tabla_productos("productos"); //tabla productos
+        break;
     case "listar_productos":
         $central = table2html("productos"); //tabla productos
         break;
@@ -66,10 +73,10 @@ switch ($action) {
     case "insertar_producto":
         $central = registrar_producto("productos"); //tabla productos
         break;
-    case "ver_cesta": //falta delete y parece funcionar
+    case "ver_cesta":
         $central = ver_cesta(); //cesta en $_SESSION["cesta"]
         break;
-    case "add":
+    case "add": //encestar
         array_push($_SESSION["cesta"], $_GET["product"]);
         $central = ver_cesta();
         break;
@@ -79,11 +86,16 @@ switch ($action) {
         }
         $central = ver_cesta();
         break;
-    case "encestar":
-        $central = "<p>Todavía no puedo encestar</p>"; //tabla compras
+    case "realizar_compra":
+        $item_id = $_GET["item_id"];
+        $usuario_id = $_SESSION["usuario_id"];
+        if (($key = array_search($item_id, $_SESSION["cesta"])) !== false) {
+            unset($_SESSION["cesta"][$key]);
+        }
+        $central = registrar_compra("compras", $usuario_id, $item_id); //cesta en $_SESSION["cesta"]
         break;
-    case "realizar_compra": //falta
-        $central = "<p>Todavía no puedo añadir a la cesta</p>"; //cesta en $_SESSION["cesta"]
+    case "compras":
+        $central = ver_compras();
         break;
     default:
         $data["error"] = "Accion No permitida";

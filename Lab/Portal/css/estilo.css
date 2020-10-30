@@ -27,7 +27,7 @@ nav, footer {
     margin-bottom: 10px;
     padding: 4px;
     text-align: center;
-    background-color: #914bb9;
+    background-color: #da2518ef;
     font-size: 80%;
 }
 
@@ -63,7 +63,8 @@ h2 {
 #eslogan {
     float: left;
     margin: 5% 5%;
-    color: #914bb9;
+    color: #0f1c99;
+    font-weight: bold;
 }
 
 #registro {
@@ -78,9 +79,9 @@ table { background-color:#FFFFE0;
     font-size:18px;
     border:1px;
     margin: 10px auto; }
-th { background-color:#BDB76B; }
+th { background-color:#d44545; }
 td, th { border: 1px solid;padding:1px;width: 10%; }
-td { border-bottom:1px dotted #BDB76B; }
+td { border-bottom:1px dotted #cc7762; }
 
 
 #registro a:hover {
@@ -125,5 +126,20 @@ section#blog {
 
 .der {
     margin-top: 0px;
+    text-align: right;
+}
+
+img{
+    display:block;
+    margin:auto;
+}
+
+button{
+    font-size: 80%;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
     text-align: right;
 }

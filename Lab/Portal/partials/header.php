@@ -4,9 +4,10 @@
  * *
  * * Descripción extensa: Pagina web dividida en 4 ficheros.
  * *
- * * @author  Lola <dllido@uji.es>
+ * * @author  Enrique Gimeno <al375903@uji.es>
+ * * @author  Edgar Heredia <al375825@uji.es>
  * * @version 1
- * * @link http://dllido@al.nisu.org/P0/holaMundo.php
+ * * @link http://localhost:3000/Lab/Portal/portal.php
  * * -->
 <html>
 
@@ -22,6 +23,6 @@
 
 <body>
 	<header>
-		<img src="./img/Logo-ACCE.gif" id="logo" alt="logo" />
+		<img src="./img/Dragon_Ball_anime_logo.png" id="logo" alt="logo" />
 		<p id="eslogan">MyLacksWeb</p>
 	</header>

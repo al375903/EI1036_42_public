@@ -7,14 +7,14 @@ $t_producto = 'productos';
 $t_compra   = 'compras';
 
 // REINICIAR TABLAS
-/*
+/**/
 $query = "DROP TABLE $t_compra";
 $pdo -> exec($query);
 $query = "DROP TABLE $t_cliente";
 $pdo -> exec($query);
 $query = "DROP TABLE $t_producto";
 $pdo -> exec($query);
-*/
+
 
 $query = "CREATE TABLE  IF NOT EXISTS $t_cliente (
                                     client_id SERIAL PRIMARY KEY, 
@@ -50,7 +50,7 @@ ejecutarSQL($query, ["Tenkaichi 3", 10.0]);
 ejecutarSQL($query, ["Fighters", 7.5]);
 ejecutarSQL($query, ["Legends", 9.6]);
 
-$query = "CREATE TABLE IF NOT EXISTS $t_compras (item_id SERIAL PRIMARY KEY, 
+$query = "CREATE TABLE IF NOT EXISTS $t_compra (item_id SERIAL PRIMARY KEY, 
                                     client_id INTEGER NOT NULL,
                                     product_id INTEGER NOT NULL,
                                     date DATE )";

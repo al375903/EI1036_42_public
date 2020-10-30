@@ -9,7 +9,8 @@ function ver_cesta()
             foreach($_SESSION["cesta"] as $k => $v)
                 if(0 < strlen($v)){
                     $link = '?action=delete&item_id=' .$v;
-                    echo "<li> $v <a href = $link>Eliminar</a> </li>";
+                    $linkCompra = '?action=realizar_compra&item_id=' .$v;
+                    echo "<li> $v <a href = $link> <button> Eliminar </button> </a> <a href = $linkCompra> <button> Comprar </button> </a></li>";
                 } else {
                     echo "Cesta vacía.";
                 } 

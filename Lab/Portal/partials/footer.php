@@ -7,7 +7,7 @@
 		<p class="izq"> Written by
 			<a href="al375903@uji.es" rev="author">Enrique Gimeno </a> &
 			<a href="al375825@uji.es" rev="author"> Edgar Heredia</a>.</p>
-		<p class="der"> Visit us at:12006 UJI </p>
+		<p class="der"> Visit us at: 12006 UJI </p>
 	</address>
 </footer>
 </body>
