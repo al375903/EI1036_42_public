@@ -1,4 +1,5 @@
 <main>
+	<script src="scripts/main.js"></script>
 	<h1>Datos de registro: </h1>
 	<form class="form_usuario" action="?action=insertar_producto" method="POST">
 		<!-- form_producto? -->
@@ -15,8 +16,21 @@
 		<br/>
 		<label for="foto_url">Foto</label>
 		<br/>
-		<input type="text" name="foto_url" size="20" maxlength="50" value=""/>
+		<input type="text" id="foto_url" name="foto_url" size="20" maxlength="50"/>
 		<br/>
+		<br>
+
+		<input type="button" id="anyadeFoto" onclick="anyadirFoto()" value="Añadir Foto"> </input>
+		
+		<div id="verCesta">
+		<form action="?action=upload" method="post" enctype="multipart/form-data">
+			Selecciona	una	imagen:</br>
+			<input type="file" accept="image/*" name="tmp_file" id="upload" onchange="handleFiles(event)"></br>
+			<canvas id="canvas"></canvas></br>
+			<input type="button" id="subirFoto" value="SUBIR" onclick="enviarFoto(event)"></input>
+		</form>
+		</div>
+
 		<p><input type="submit" value="Enviar">
 		<input type="reset" value="Deshacer">
 		</p>

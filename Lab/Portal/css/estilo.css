@@ -17,6 +17,7 @@ body {
 }
 
 header {
+    display: block;
     min-height: 100px;
     margin-bottom: 5px 5px 5px 5px;
     padding: 5px 5px 5px 5px;
@@ -142,4 +143,54 @@ button{
     margin-right: 10px;
     margin-left: 10px;
     text-align: right;
+}
+
+#canvas{
+    border:1px solid #d9d9d9; 
+    width: 50%; 
+    height: 50%;
+}
+
+#insertaFoto{
+    float: none;
+    display: none;
+    background: gray;
+    position: fixed;
+    text-align: center;
+    border-style: solid;
+    margin: auto;
+    width: auto;
+    height: auto;
+}
+
+#cesta{
+    background: rgb(112, 210, 240);
+}
+
+.botonCesta{
+    background-image: url(../img/cesta.png);
+    background-size: 95%;
+    background-repeat: no-repeat;
+    height: 5em;
+    width: 5em;
+    background-position: center;
+    margin-left: 0%;
+    border-style: solid;
+    border-color: #d44545;
+    float: right;
+    margin: 1em 0 0 auto;
+}
+
+#abrirCesta{
+    display: none;
+    position: fixed;
+    background: gray;
+    border-style: solid;
+    float: none;
+    bottom: 53%;
+    right: 1%;
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 10%;
 }

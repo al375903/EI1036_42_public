@@ -97,6 +97,12 @@ switch ($action) {
     case "compras":
         $central = ver_compras();
         break;
+
+    case "upload":
+        $central = "<p>Aun nada.</p>";
+        $target = basename($_FILES["tmp_file"]["name"]);
+        break;
+
     default:
         $data["error"] = "Accion No permitida";
         $central = "/partials/centro.php";
