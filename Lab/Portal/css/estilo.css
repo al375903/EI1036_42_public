@@ -145,6 +145,20 @@ button{
     text-align: right;
 }
 
+#abrirFoto{
+    display: none;
+    position: fixed;
+    background: gray;
+    border-style: solid;
+    float: none;
+    top: 25%;
+    right: 25%;
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 10%;
+}
+
 #canvas{
     border:1px solid #d9d9d9; 
     width: 50%; 
@@ -187,7 +201,7 @@ button{
     background: gray;
     border-style: solid;
     float: none;
-    bottom: 53%;
+    top: 10%;
     right: 1%;
     text-align: center;
     width: auto;

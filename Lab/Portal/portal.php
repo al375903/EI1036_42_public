@@ -99,8 +99,10 @@ switch ($action) {
         break;
 
     case "upload":
-        $central = "<p>Aun nada.</p>";
-        $target = basename($_FILES["tmp_file"]["name"]);
+        $target_path = "img/";
+        $target_path = $target_path . basename($_FILES["tmp_file"]["name"]);
+        move_uploaded_file($_FILES["tmp_file"]["tmp_name"], $target_path);
+        $central = "/partials/registro_producto.php"; //redirecciona al formulario
         break;
 
     default:

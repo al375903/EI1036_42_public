@@ -28,12 +28,25 @@
 		<input type="button" class="botonCesta" onclick="abrirCesta()"></input>
 
 		<div id="abrirCesta">
-		<form action="?action=upload" method="post" enctype="multipart/form-data">
-			Selecciona	una	imagen:</br>
-			<input type="file" accept="image/*" name="tmp_file" id="upload" onchange="handleFiles(event)"></br>
-			<canvas id="canvas"></canvas></br>
-			<input type="button" id="subirFoto" value="SUBIR" onclick="enviarFoto(event)"></input>
-		</form>
+			<section class="head">
+				<h1> TAREAS </h1>
+			</section>
+
+			<section class="form">
+			
+				<input type="text" id="tarea" name="tarea" placeholder="introduce una tarea"></input>
+				<button id="envia" onclick="anyadir()">+</button>
+				
+			</section>
+
+			<section class="lista">
+				<ul id="list">
+				</ul>
+			</section>
+
+			<center>
+				<button onclick="guardar()">Guardar</button>
+			</center>
 		</div>
 
 	</header>
