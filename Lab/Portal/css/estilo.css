@@ -208,3 +208,8 @@ button{
     height: auto;
     padding: 10%;
 }
+
+.error{
+    color: red;
+    display: none;
+}

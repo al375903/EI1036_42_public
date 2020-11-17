@@ -7,16 +7,19 @@
 		<label for="name">Nombre</label>
 		<br/>
 		<input type="text" name="name" id="name" class="item_requerid" size="20" maxlength="50" value=""
-		 placeholder="Objeto 1" />
+		 placeholder="Nombre"/>
+		 <span class="error" id="nameErr">Insertar Nombre</span>
 		<br/>
 		<label for="price">Precio</label>
 		<br/>
-		<input type="text" name="price" id="price" class="item_requerid" size="20" maxlength="50" value=""
-		 placeholder="10.0" />
+		<input type="number" name="price" id="price" class="item_requerid" size="20" maxlength="50" value=""
+		 placeholder="0.00" step=".01"/>
+		 <span class="error" id="priceErr">Insertar Precio superior a 0</span>
 		<br/>
 		<label for="foto_url">Foto</label>
 		<br/>
 		<input type="text" id="foto_url" name="foto_url" size="20" maxlength="50"/>
+		<span class="error" id="fotoErr">Insertar Foto</span>
 		<br/>
 		<br>
 
@@ -24,7 +27,7 @@
 		
 		
 
-		<p><input type="submit" value="Enviar">
+		<p><input type="submit" id="enviarProducto" value="Enviar" disabled="true">
 		<input type="reset" value="Deshacer">
 		</p>
 	</form>

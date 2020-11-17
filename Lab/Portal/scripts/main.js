@@ -52,16 +52,40 @@ function asignarContenido(){
     localStorage.clear();
 }
 
-function validarProducto(){
-    document.getElementById("name").oninput = checkNombre();
-    document.getElementById("price").oninput = checkPrecio();
-}
 
-function checkNombre(){
-    var nombre = document.getElementById("name").value;
-    if(nombre.length);
-}
+function checkValores(){
+    var condiciones = 0;
+    var nombre = document.getElementById("name");
+    var precio = document.getElementById("price");
+    var foto = document.getElementById("foto_url");
+    
+    if((nombre.value == null) || (nombre.value.length < 1)){//(nombre.value == null) || (nombre.value.length < 1)
+        document.getElementById("nameErr").style.display="inline";
+        document.getElementById("enviarProducto").disabled = true;
+    }else{
+        condiciones += 1;
+        document.getElementById("nameErr").style.display="none";
+    }
 
+    if(precio.value <= 0.00){
+        document.getElementById("priceErr").style.display="inline";
+        document.getElementById("enviarProducto").disabled = true;
+    }else{
+        condiciones += 1;
+        document.getElementById("priceErr").style.display="none";
+    }
+
+    if((foto.value == null) || (foto.value.length < 1)){
+        document.getElementById("fotoErr").style.display="inline";
+        document.getElementById("enviarProducto").disabled = true;
+    }else{
+        condiciones += 1;
+        document.getElementById("fotoErr").style.display="none";
+    }
+
+    if(condiciones == 3) 
+        document.getElementById("enviarProducto").disabled = false;
+}
 
 function abrirCesta(){
     let divCaja = document.getElementById("abrirCesta");
@@ -113,3 +137,9 @@ function guardar(){
 
 if(window.location.href == "http://localhost:3000/Lab/Portal/portal.php?action=upload")
     document.onload = asignarContenido();
+
+window.oninput = function(){
+    document.getElementById("name").onchange = checkValores;
+    document.getElementById("price").onchange = checkValores;
+    document.getElementById("foto_url").onchange = checkValores;
+}
