@@ -99,7 +99,6 @@ function abrirCesta(){
     botonCesta.disabled = true;
     let divCaja = document.getElementById("abrirCesta");
     divCaja.style.display="block";
-    cargarCesta();
 }
 
 
@@ -143,6 +142,19 @@ function guardarCesta(){
   localStorage.setItem('cesta', JSON.stringify(lista));
 }
 
+function borrarCesta(){
+    let productos = localStorage.getItem('cesta')
+    document.getElementById('botonCesta').setAttribute('href','?action=comprar&productos=1'+productos);
+    localStorage.removeItem('cesta');
+}
+
+function crearLinkCompra(){
+    let productos = JSON.parse(localStorage.getItem('cesta'));
+    var link = document.getElementById("botonCompra");
+    link.innerHTML = "Comprar";
+    link.setAttribute('href','?action=comprar&productos='+productos);
+    return false;
+}
 
 
 if(window.location.href == "http://localhost:3000/Lab/Portal/portal.php?action=upload")

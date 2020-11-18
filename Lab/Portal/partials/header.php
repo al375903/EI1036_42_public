@@ -48,10 +48,12 @@
 
 			<center>
 				<button onclick="guardarCesta()">Guardar</button>
+				
 				<?php 
-					//$linkCompra = '?action=comprar&productes=' .$v;
-					//echo "<a href = $linkCompra> <button> Comprar </button> </a>"
+					$linkCompra = '?action=comprar&productos=';
+					echo "<a id='botonCompra' href='#' onclick='crearLinkCompra();'> <button> Comprar </button> </a>";
 				?>
+				
 			</center>
 			<div class="botonCerrar">
 				<input type="button" value="X" onclick="cerrarCesta()">

@@ -40,6 +40,7 @@ include(dirname(__FILE__)."/includes/registrar_compra.php");
 if (isset($_REQUEST['action'])) $action = $_REQUEST["action"];
 else $action = "home";
 $central = "Partials/centro.php";
+echo "<script>cargarCesta();</script>";
 
 switch ($action) {
     case "home":
@@ -77,9 +78,19 @@ switch ($action) {
         $central = ver_cesta(); //cesta en $_SESSION["cesta"]
         break;
     case "add": //encestar
-        array_push($_SESSION["cesta"], $_GET["product"]);
-        echo "<script>cargarCesta(); anyadirProducto('" . $_GET["product"] . "'); guardarCesta();</script>"; //Comprobar
+        //array_push($_SESSION["cesta"], $_GET["product"]);
+        echo "<script>anyadirProducto('" . $_GET["product"] . "'); guardarCesta();</script>"; //Comprobar
         $central = table2html("productos");
+        break;
+    case "comprar":
+        $usuario_id = $_SESSION["usuario_id"];
+        $productos = $_GET["productos"]; 
+        $productos = explode(",", $productos);
+        echo "<script>borrarCesta();</script>";
+        foreach($productos as $item){
+            registrar_compra("compras", $usuario_id, $item);
+        }
+        $central = "/partials/centro.php";
         break;
     case "delete":
         if (($key = array_search($_GET["item_id"], $_SESSION["cesta"])) !== false) {

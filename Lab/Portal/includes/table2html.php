@@ -17,8 +17,8 @@ function table2html($table)
         print "</thead>";
         foreach ($rows as $row) {
             print "<tr>";
-            $producto = array_values($row)[1];
-            $link = '?action=add&client_id=' .$_SESSION["usuario_id"] .'&product=' .array_values($row)[1];
+            //$producto = array_values($row)[1];
+            $link = '?action=add&client_id=' .$_SESSION["usuario_id"] .'&product=' .array_values($row)[0];
             foreach ($row as $key => $val) {
                 echo "<td>", $val, "</td>";
             }
