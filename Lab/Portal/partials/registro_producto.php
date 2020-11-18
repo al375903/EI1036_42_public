@@ -38,6 +38,9 @@
 			<canvas id="canvas"></canvas></br>
 			<input type="submit" id="subirFoto" value="SUBIR" onclick="enviarFoto(event)"></input> <!--onclick="enviarFoto(event)"-->
 		</form>
+		<div class="botonCerrar">
+			<input type="button" value="X" onclick="cerrarFoto()">
+		</div>
 	</div>
 </main>
 <script src="scripts/main.js"></script>

@@ -25,19 +25,21 @@
 	<header>
 		<img src="./img/Dragon_Ball_anime_logo.png" id="logo" alt="logo" />
 		<p id="eslogan">MyLacksWeb </p>
-		<input type="button" class="botonCesta" onclick="abrirCesta()"></input>
+		<?php if (isset($_SESSION['usuario']))
+			echo "<input type='button' id='botonCesta' class='botonCesta' onclick='abrirCesta()'></input>"
+		?>
 
 		<div id="abrirCesta">
 			<section class="head">
-				<h1> TAREAS </h1>
+				<h1> CESTA </h1>
 			</section>
 
-			<section class="form">
+			<!-- <section class="form">
 			
-				<input type="text" id="tarea" name="tarea" placeholder="introduce una tarea"></input>
-				<button id="envia" onclick="anyadir()">+</button>
+				<input type="text" id="producto" name="producto" placeholder="introduce un producto"></input>
+				<button id="envia" onclick="anyadirProducto()">+</button>
 				
-			</section>
+			</section> -->
 
 			<section class="lista">
 				<ul id="list">
@@ -45,8 +47,14 @@
 			</section>
 
 			<center>
-				<button onclick="guardar()">Guardar</button>
+				<button onclick="guardarCesta()">Guardar</button>
+				<?php 
+					//$linkCompra = '?action=comprar&productes=' .$v;
+					//echo "<a href = $linkCompra> <button> Comprar </button> </a>"
+				?>
 			</center>
+			<div class="botonCerrar">
+				<input type="button" value="X" onclick="cerrarCesta()">
+			</div>
 		</div>
-
 	</header>

@@ -198,7 +198,7 @@ button{
 #abrirCesta{
     display: none;
     position: fixed;
-    background: gray;
+    background-color: gray;
     border-style: solid;
     float: none;
     top: 10%;
@@ -209,7 +209,21 @@ button{
     padding: 10%;
 }
 
+#producto{
+    border:1px; 
+    border-radius:5px; 
+    padding:15px;
+}
+
 .error{
     color: red;
     display: none;
+}
+
+.botonCerrar{
+    display: block;
+    position: absolute;
+    float: none;
+    top: 0%;
+    right: 0%;
 }

@@ -17,11 +17,13 @@ function table2html($table)
         print "</thead>";
         foreach ($rows as $row) {
             print "<tr>";
-            $link = '?action=add&client_id=' .$_SESSION["usuario_id"] .'&product=' .array_values($row)[0];
+            $producto = array_values($row)[1];
+            $link = '?action=add&client_id=' .$_SESSION["usuario_id"] .'&product=' .array_values($row)[1];
             foreach ($row as $key => $val) {
                 echo "<td>", $val, "</td>";
             }
             echo "<td><a href=$link><button>Encestar</button></a></td>";
+            //echo '<td><button onclick="anyadirProducto("'.$producto.'")">Encestar</button></td>';
             print "</tr>";
         }
         print "</table>";

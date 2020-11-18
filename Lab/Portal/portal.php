@@ -78,7 +78,8 @@ switch ($action) {
         break;
     case "add": //encestar
         array_push($_SESSION["cesta"], $_GET["product"]);
-        $central = ver_cesta();
+        echo "<script>cargarCesta(); anyadirProducto('" . $_GET["product"] . "'); guardarCesta();</script>"; //Comprobar
+        $central = table2html("productos");
         break;
     case "delete":
         if (($key = array_search($_GET["item_id"], $_SESSION["cesta"])) !== false) {

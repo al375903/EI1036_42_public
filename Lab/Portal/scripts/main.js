@@ -9,6 +9,13 @@ function cerrarFoto(){
     divCaja.style.display="none";
 }
 
+function cerrarCesta(){
+    let botonCesta = document.getElementById("botonCesta");
+    botonCesta.disabled = false;
+    let divCaja = document.getElementById("abrirCesta");
+    divCaja.style.display="none";
+}
+
 function	handleFiles(e)	{
     let ctx	=	document.getElementById('canvas').getContext('2d');
     let img	=	new	Image;
@@ -88,56 +95,60 @@ function checkValores(){
 }
 
 function abrirCesta(){
+    let botonCesta = document.getElementById("botonCesta");
+    botonCesta.disabled = true;
     let divCaja = document.getElementById("abrirCesta");
     divCaja.style.display="block";
+    cargarCesta();
 }
 
 
 
 
 //Cesta
-(function(){
-    let lista = JSON.parse(localStorage.getItem('cesta'))
-    if(lista && lista.length>0)
-      lista.forEach(tarea => anyadir(tarea))
-})()
-
-function anyadir(tarea){
-  let nodo = document.createElement('li')
-  
-  let span = document.createElement('span')
-  span.classList.add('data-tarea') // añadimos una nueva clase al atributo 'class'
-
-  if (tarea) 
-     span.textContent = tarea
-  else /*si el contenido es vacio return */
-     span.textContent = document.getElementById('tarea').value
-  
-  nodo.appendChild(span)
-
-  let boton = document.createElement('button')
-  boton.textContent = 'Hecho'
-  nodo.appendChild(boton)
-  boton.onclick = eliminar
-  boton.classList.add('boton')
-
-  document.getElementById('list').appendChild(nodo)
+function cargarCesta(){
+    let lista = JSON.parse(localStorage.getItem('cesta'));
+    if(lista && lista.length>0){
+        lista.forEach(producto => anyadirProducto(producto));
+    }
 }
 
-function eliminar(){
-  this.parentNode.remove()
+function anyadirProducto(producto){
+  let nodo = document.createElement('li');
+  
+  let span = document.createElement('span');
+  span.classList.add('data-producto'); // añadimos una nueva clase al atributo 'class'
+
+  span.textContent = producto;
+  
+  nodo.appendChild(span);
+
+  let boton = document.createElement('button');
+  boton.textContent = 'Eliminar';
+  nodo.appendChild(boton);
+  boton.onclick = eliminarDeCesta;
+  boton.classList.add('boton');
+
+  document.getElementById('list').appendChild(nodo);
 }
 
-function guardar(){
-  let lista = document.querySelectorAll('.data-tarea')
+function eliminarDeCesta(){
+  this.parentNode.remove();
+}
+
+function guardarCesta(){
+  let lista = document.querySelectorAll('.data-producto');
   //hay que conseguir que no guarde el contenido del boton
-  lista = Array.from(lista).map(n => n.textContent)
-  localStorage.setItem('cesta', JSON.stringify(lista))
+  lista = Array.from(lista).map(n => n.textContent);
+  localStorage.setItem('cesta', JSON.stringify(lista));
 }
+
+
 
 if(window.location.href == "http://localhost:3000/Lab/Portal/portal.php?action=upload")
     document.onload = asignarContenido();
 
+//document.onload = cargarCesta();
 window.oninput = function(){
     document.getElementById("name").onchange = checkValores;
     document.getElementById("price").onchange = checkValores;
