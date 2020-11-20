@@ -56,7 +56,9 @@ function asignarContenido(){
     document.getElementById("name").value = localStorage.getItem("nombreProducto");
     document.getElementById("price").value = localStorage.getItem("precioProducto");
     document.getElementById("foto_url").value = "img/" + localStorage.getItem("fotoProducto");
-    localStorage.clear();
+    localStorage.removeItem("nombreProducto");
+    localStorage.removeItem("precioProducto");
+    localStorage.removeItem("fotoProducto");
 }
 
 
