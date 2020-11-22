@@ -59,6 +59,7 @@ function asignarContenido(){
     localStorage.removeItem("nombreProducto");
     localStorage.removeItem("precioProducto");
     localStorage.removeItem("fotoProducto");
+    checkValores();
 }
 
 
