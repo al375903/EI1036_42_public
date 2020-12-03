@@ -35,6 +35,7 @@ include(dirname(__FILE__)."/includes/ver_compras.php");
 
 include(dirname(__FILE__)."/includes/registrar_producto.php");
 include(dirname(__FILE__)."/includes/registrar_compra.php");
+include(dirname(__FILE__)."/includes/productos_visor.php");
 
 
 if (isset($_REQUEST['action'])) $action = $_REQUEST["action"];
@@ -62,11 +63,13 @@ switch ($action) {
     case "insertar_usuario":
         $central = registrar_usuario("usuarios"); //tabla usuarios
         break;
-    case "ver_productos":
+    case "ver_productos": //para no registrados
         $central = tabla_productos("productos"); //tabla productos
+        //$central = productos();
         break;
-    case "listar_productos":
-        $central = table2html("productos"); //tabla productos
+    case "listar_productos": //para usuarios
+        //$central = table2html("productos"); //tabla productos
+        $central = productos();
         break;
     case "registrar_producto":
         $central = "/partials/registro_producto.php"; //formulario producto
@@ -80,7 +83,8 @@ switch ($action) {
     case "add": //encestar
         //array_push($_SESSION["cesta"], $_GET["product"]);
         echo "<script>anyadirProducto('" . $_GET["product"] . "'); guardarCesta();</script>"; //Comprobar
-        $central = table2html("productos");
+        $central = productos();
+        //$central = table2html("productos");
         break;
     case "comprar":
         $usuario_id = $_SESSION["usuario_id"];

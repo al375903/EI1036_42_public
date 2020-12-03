@@ -10,6 +10,13 @@
 		<p class="der"> Visit us at: 12006 UJI </p>
 	</address>
 </footer>
+<script>
+	fetch('datos.php')
+	.then(response => response.json())
+    //.then(json => console.log(json))
+    .then(data => productoVisor(data))
+	.catch(err => console.log('Fetch Error :', err))
+</script>
 </body>
 
 </html>

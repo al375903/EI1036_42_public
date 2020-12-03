@@ -159,13 +159,105 @@ function crearLinkCompra(){
     return false;
 }
 
+function productoVisor(data){
+    insertarOpciones(data);
+    if (data.length <1) alert("No se han encontrado resultados.");
+    else{
+    for(var row of data){
+        let nodo = document.createElement('div');
+        nodo.id = row.product_id;
+        nodo.classList.add('item'); // añadimos una nueva clase al atributo 'class'
+
+        let img = document.createElement('img');
+        if(row.foto_url != null && row.foto_url.includes('img/'))
+            img.src = row.foto_url;
+        else
+            img.src = 'img/notFound.png';
+        img.width = '200';
+        img.height = '200';
+        nodo.appendChild(img);
+
+        let p0 = document.createElement('p');
+        p0.textContent = row.name;
+        nodo.appendChild(p0);
+
+        let p1 = document.createElement('p');
+        p1.textContent = row.price+' €';
+        nodo.appendChild(p1);
+
+        let a = document.createElement('a');
+        a.href = '?action=add&product=' + row.product_id;
+
+        let boton = document.createElement('button');
+        boton.textContent = 'Comprar';
+        a.appendChild(boton);
+        nodo.appendChild(a); 
+		
+        document.getElementsByClassName("visor")[0].appendChild(nodo);
+        Prod2ID[row.name] = row.product_id;
+    }}
+}
+
+
+function insertarOpciones(L){
+    document.getElementById('productos').innerHTML='';
+    L.forEach(x => {
+      let n = document.createElement('option')
+      n.value = x.name
+      document.getElementById('productos').appendChild(n)
+    })
+ }
+
+function buscaProducto(){
+    var y = document.getElementById('producto').value;
+    var x = Prod2ID[y];
+    document.getElementById(x).scrollIntoView();
+}
+
+function filtrarProductos(){
+    var min = document.getElementById('precioMin');
+    if (min==null || min.value.length<1) min.value=0;
+    var max = document.getElementById('precioMax');
+    if (max==null || max.value.length<1) max.value="-1";
+    let url = 'precios.php?min='+min.value+'&max='+max.value;
+    let visor = document.getElementsByClassName("visor")[0];
+    visor.innerHTML='';
+    
+    fetch(url)
+	.then(response => response.json())
+    //.then(json => console.log(json)))
+    .then(data => productoVisor(data))
+    .catch(err => console.log('Fetch Error :', err));
+}
+
+ 
 
 if(window.location.href == "http://localhost:3000/Lab/Portal/portal.php?action=upload")
     document.onload = asignarContenido();
 
 //document.onload = cargarCesta();
-window.oninput = function(){
-    document.getElementById("name").onchange = checkValores;
-    document.getElementById("price").onchange = checkValores;
-    document.getElementById("foto_url").onchange = checkValores;
+if(window.location.href == "http://localhost:3000/Lab/Portal/portal.php?action=upload" || window.location.href == "http://localhost:3000/Lab/Portal/portal.php?action=registrar_producto"){
+    window.oninput = function(){
+        document.getElementById("name").onchange = checkValores;
+        document.getElementById("price").onchange = checkValores;
+        document.getElementById("foto_url").onchange = checkValores;
+    }
 }
+
+var Prod2ID = {};
+
+
+/* fetch('http://localhost:3000/Lab/Portal/portal.php?action=datos', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json',
+                'Content-Type': 'application/json' },
+    body: JSON.stringify(opts)
+})
+.then(response => response.json())
+.then(json => "")
+.catch(err => console.log('Fetch Error :', err))
+ */
+/* fetch('http://localhost:3000/Lab/Portal/datos.php')
+.then(response => response.json())
+.then(json => console.log(json))
+.catch(err => console.log('Fetch Error :', err)) */

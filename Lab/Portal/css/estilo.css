@@ -227,3 +227,26 @@ button{
     top: 0%;
     right: 0%;
 }
+
+.visor {
+    margin: auto;
+    background-color: rgb(230, 173, 185);
+    width: auto;
+    overflow-x: scroll;
+    display:flex;
+}
+
+.item {
+    margin: 5px;
+    background-color: red;
+}
+
+.botonFiltro{
+    background-image: url(../img/lupa.png);
+    background-size: 95%;
+    background-repeat: no-repeat;
+    height: 3em;
+    width: 3em;
+    display: inline;
+    margin: 1em 1em 1em;
+}
