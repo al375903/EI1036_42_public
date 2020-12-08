@@ -245,19 +245,3 @@ if(window.location.href == "http://localhost:3000/Lab/Portal/portal.php?action=u
 }
 
 var Prod2ID = {};
-
-
-/* fetch('http://localhost:3000/Lab/Portal/portal.php?action=datos', {
-    method: 'POST',
-    headers: { 'Accept': 'application/json',
-                'Content-Type': 'application/json' },
-    body: JSON.stringify(opts)
-})
-.then(response => response.json())
-.then(json => "")
-.catch(err => console.log('Fetch Error :', err))
- */
-/* fetch('http://localhost:3000/Lab/Portal/datos.php')
-.then(response => response.json())
-.then(json => console.log(json))
-.catch(err => console.log('Fetch Error :', err)) */
